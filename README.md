@@ -19,7 +19,7 @@ docker build --tag image-manager:1.0 .
 ```
 docker run --publish 8000:3000 --detach --name image-manager image-manager:1.0
 ```
-2. Visit your application in a browser at localhost:3000.
+2. Visit your application in a browser at http://localhost:3000/.
 3. Stop the running container
 ```
 docker stop image-manager
@@ -32,19 +32,19 @@ You’ll need Node.js version 10.13 or later.
 1. Сlone this repository. 
 2. Open your terminal and **cd** into the repository directory.
 3. Run the following command to set up npm packages:
- ```
- npm install.
+```
+npm install
 ```
  ### Start (without Docker)
-1. Start app in development mode
+Start app in development mode
 ```
 nmp run dev
 ```
-2. Builds app for production usage
+Builds app for production usage
 ```
 npm run build 
 ```
-3. Start production server
+Start production server
 ```
 npm run start
 ```
