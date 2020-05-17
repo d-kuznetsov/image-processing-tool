@@ -1,4 +1,4 @@
-## Web application for processing images
+# Web application for processing images
 This simple web application, developed as part of the **web technology course (ss2020)**, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
 
 This application can be used with or without Docker.
@@ -51,6 +51,8 @@ npm run start
 ## Contribution
 Before submitting your contribution, please make sure to take a moment and read through the following:
 
+### [Code of Conduct](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2020-d-kuznetsov/blob/master/.github/CODE_OF_CONDUCT.md)
+
 ### Requirements
 This project was created using JavaScript library [React](https://reactjs.org/) and React Framework [Next.js](https://nextjs.org/). Make sure you understand the basic concepts of these technologies. In addition, basic knowledge of [SASS](https://sass-lang.com/) and [Express](https://expressjs.com/) is desirable.
 
@@ -59,9 +61,9 @@ This project was created using JavaScript library [React](https://reactjs.org/) 
 
 ### Git Workflow
 In this workflow, we have three branches
-* **master** This branch will have production code only. In other words, anything you push to the master branch better be free of bugs.
-* **dev** This branch will be the “live” version of your software. This is the branch that developers will push to on a regular basis with new features.
-* **feature** This technically is not a single branch. Each feature branch represents a new chunk of code that will eventually be tested and added to the codebase.
+* **Master** branch will have production code only. In other words, anything you push to the master branch better be free of bugs.
+* **Dev** branch will be the “live” version of your software. This is the branch that developers will push to on a regular basis with new features.
+* **Feature** technically is not a single branch. Each feature branch represents a new chunk of code that will eventually be tested and added to the codebase.
 
 The basic steps in this flow are as follows:
 1. Create a new branch from the **dev** branch and call it something like **“feature-< describe feature here, or give it an ID >”**
@@ -73,3 +75,6 @@ The basic steps in this flow are as follows:
 7. When the release is tested and prepped, merge the **dev** branch into **master**
 8. Tag the **master** branch commit to the correct version (i.e. v1.1)
 9. Repeat
+
+## License
+This application is [MIT](./LICENSE) licensed.
