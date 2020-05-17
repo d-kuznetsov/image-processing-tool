@@ -1,5 +1,5 @@
-## Web application for processing images (Web technologies, summer semester 2020)
-This simple web application, developed as part of the web technology course, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
+## Web application for processing images
+This simple web application, developed as part of the **web technology course (ss2020)**, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
 
 This application can be used with or without Docker.
 
@@ -35,7 +35,7 @@ You’ll need Node.js version 10.13 or later.
 ```
 npm install
 ```
- ### Start (without Docker)
+ ### Commonly used npm scripts
 Start app in development mode
 ```
 nmp run dev
@@ -60,16 +60,16 @@ This project was created using JavaScript library [React](https://reactjs.org/) 
 ### Git Workflow
 In this workflow, we have three branches
 1. **master**.This branch will have production code only. In other words, anything you push to the master branch better be free of bugs.
-2.**dev**. This branch will be the “live” version of your software. This is the branch that developers will push to on a regular basis with new features.
-3.**feature**. This technically is not a single branch. Each feature branch represents a new chunk of code that will eventually be tested and added to the codebase.
+2. **dev**. This branch will be the “live” version of your software. This is the branch that developers will push to on a regular basis with new features.
+3. **feature**. This technically is not a single branch. Each feature branch represents a new chunk of code that will eventually be tested and added to the codebase.
 
 The basic steps in this flow are as follows:
-1. Create a new branch from the develop branch and call it something like “feature-< describe feature here, or give it an ID >”
-2. Work on your feature, committing to this feature branch
+1. Create a new branch from the **dev** branch and call it something like **“feature-< describe feature here, or give it an ID >”**
+2. Work on your feature, committing to this **feature** branch
 3. Test your feature
-4. Merge your feature into the dev branch
-5. Delete your feature branch
+4. Merge your **feature** into the **dev** branch
+5. Delete your **feature** branch
 6. Once enough features have been added, prepare your release
-7. When the release is tested and prepped, merge the develop branch into master
-8. Tag the master branch commit to the correct version (i.e. v1.1)
+7. When the release is tested and prepped, merge the **dev** branch into **master**
+8. Tag the **master** branch commit to the correct version (i.e. v1.1)
 9. Repeat
