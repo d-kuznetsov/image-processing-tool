@@ -59,9 +59,9 @@ This project was created using JavaScript library [React](https://reactjs.org/) 
 
 ### Git Workflow
 In this workflow, we have three branches
-1. **master**.This branch will have production code only. In other words, anything you push to the master branch better be free of bugs.
-2. **dev**. This branch will be the “live” version of your software. This is the branch that developers will push to on a regular basis with new features.
-3. **feature**. This technically is not a single branch. Each feature branch represents a new chunk of code that will eventually be tested and added to the codebase.
+* **master** This branch will have production code only. In other words, anything you push to the master branch better be free of bugs.
+* **dev** This branch will be the “live” version of your software. This is the branch that developers will push to on a regular basis with new features.
+* **feature** This technically is not a single branch. Each feature branch represents a new chunk of code that will eventually be tested and added to the codebase.
 
 The basic steps in this flow are as follows:
 1. Create a new branch from the **dev** branch and call it something like **“feature-< describe feature here, or give it an ID >”**
