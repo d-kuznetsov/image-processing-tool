@@ -1,18 +1,9 @@
-import axious from "axios";
+import imageService from "../image-service";
 
-function Uploader(props) {
-  const { beforeImgUpload, afterImgUpload } = props;
+function Uploader() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    file && uploadImg(file);
-  };
-  const uploadImg = (file) => {
-    beforeImgUpload();
-    const formData = new FormData();
-    formData.append("image", file);
-    axious.post("api/image", formData).then(() => {
-      afterImgUpload();
-    });
+    file && imageService.uploadImage(file);
   };
 
   return (
