@@ -1,5 +1,10 @@
-import '../styles.scss';
+import "../styles.scss";
+import { AppContextProvider } from "../context";
 
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <AppContextProvider>
+      <Component {...pageProps} />
+    </AppContextProvider>
+  );
 }
