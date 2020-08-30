@@ -1,18 +1,17 @@
-import axious from "axios";
+import imageService from "../image-service";
+import { useAppContext } from "../context";
 
-function Uploader(props) {
-  const { beforeImgUpload, afterImgUpload } = props;
-  const handleFileChange = (e) => {
+function Uploader() {
+  const { setImages, setIsLoading } = useAppContext();
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    file && uploadImg(file);
-  };
-  const uploadImg = (file) => {
-    beforeImgUpload();
-    const formData = new FormData();
-    formData.append("image", file);
-    axious.post("api/image", formData).then(() => {
-      afterImgUpload();
-    });
+    if (file) {
+      setIsLoading(true);
+      await imageService.uploadImage(file);
+      const res = await imageService.fetchImages();
+      setImages(res.data);
+      setIsLoading(false);
+    }
   };
 
   return (

@@ -1,8 +1,8 @@
 export default function LoadIndicator() {
   return (
     <div className="LoadIndicator">
-      <div class="LoadIndicator-indicator">
-        <div class="LoadIndicator-cicle" />
+      <div className="LoadIndicator-indicator">
+        <div className="LoadIndicator-cicle" />
       </div>
     </div>
   );
