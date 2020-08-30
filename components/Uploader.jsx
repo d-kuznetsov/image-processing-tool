@@ -1,9 +1,17 @@
 import imageService from "../image-service";
+import { useAppContext } from "../context";
 
 function Uploader() {
-  const handleFileChange = (e) => {
+  const { setImages, setIsLoading } = useAppContext();
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    file && imageService.uploadImage(file);
+    if (file) {
+      setIsLoading(true);
+      await imageService.uploadImage(file);
+      const res = await imageService.fetchImages();
+      setImages(res.data);
+      setIsLoading(false);
+    }
   };
 
   return (

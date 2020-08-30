@@ -5,7 +5,7 @@ const SET_IMAGES = "SET_IMAGES";
 const SET_IS_LOADING = "SET_IS_LOADING";
 
 const initialState = {
-  images: [],
+  images: null,
   imageToView: null,
   isLoading: false,
 };
@@ -13,7 +13,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case SET_IMAGES:
-      return { ...state, imageToView: action.images };
+      return { ...state, images: action.images };
     case SET_IMG_TO_VIEW:
       return { ...state, imageToView: action.image };
     case SET_IS_LOADING:

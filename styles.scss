@@ -1,4 +1,4 @@
-$light-color: #FFF;
+$light-color: #fff;
 $dark-color: #35495e;
 $green-color: #41b883;
 $light-grey-color: #f6f6f6;
@@ -80,22 +80,22 @@ body {
   &-image {
     border-radius: $border-radius;
   }
+}
 
-  &-toolbar {
-    display: none;
-    position: absolute;
-    padding: 0px;
-    margin: 0px;
-    top: 15px;
-    right: 15px;
+.GridItemToolbar {
+  display: none;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  top: 15px;
+  right: 15px;
 
-    .Grid-item:hover & {
-      display: flex;
-      flex-direction: column;
-    }
+  .Grid-item:hover & {
+    display: flex;
+    flex-direction: column;
   }
 
-  &-toolbarItem {
+  &-item {
     @extend %flex-center;
     $size: 30px;
 

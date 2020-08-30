@@ -1,18 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { useAppState } from "./state";
 
-const AppContext = React.createContext("");
+const AppContext = React.createContext({});
 
 export function useAppContext() {
   return useContext(AppContext);
 }
 
 export function AppContextProvider({ children }) {
-  const { state, setImageToView, setImages } = useAppState();
-
-  return (
-    <AppContext.Provider value={{ ...state, setImageToView, setImages }}>
-      {children}
-    </AppContext.Provider>
+  const { state, setImageToView, setImages, setIsLoading } = useAppState();
+  const ctxValue = useMemo(
+    () => ({
+      ...state,
+      setImageToView,
+      setImages,
+      setIsLoading,
+    }),
+    [state]
   );
+
+  return <AppContext.Provider value={ctxValue}>{children}</AppContext.Provider>;
 }
