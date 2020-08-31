@@ -1,0 +1,18 @@
+@tailwind base;
+body {
+  @apply font-sans;
+}
+
+@tailwind components;
+.content-area {
+  height: calc(100% - theme("spacing.24"));
+  width: calc(100% - theme("spacing.24"));
+}
+
+@tailwind utilities;
+.flex-center {
+  @apply flex justify-center items-center;
+}
+.overlay {
+  @apply flex-center fixed inset-0 bg-blue-700 bg-opacity-50 z-10;
+}
