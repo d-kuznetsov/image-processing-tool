@@ -1,4 +1,4 @@
-import "../styles.scss";
+import "../styles.css";
 import { AppContextProvider } from "../context";
 
 export default function MyApp({ Component, pageProps }) {

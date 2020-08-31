@@ -14,12 +14,15 @@ function Grid({ initialItems }) {
   };
 
   return (
-    <div className="Grid" onClick={handleClick}>
+    <div className="flex flex-wrap justify-center" onClick={handleClick}>
       {(items || initialItems).map(({ imgId }) => {
         return (
-          <article key={imgId} className="Grid-item">
+          <article
+            key={imgId}
+            className="group relative flex-center p-4 border-solid border-2 border-transparent hover:border-blue-400 hover:bg-blue-100 rounded-md cursor-pointer"
+          >
             <img
-              className="Grid-image"
+              className="rounded-md"
               src={`api/image/${IMAGE_SIZE_TO_PREVIEW}/${imgId}`}
             />
             <GridItemToolbar imgId={imgId} />
