@@ -1,20 +1,14 @@
+import { FILE_EXT } from "../config";
 import { useState, useEffect } from "react";
 import { useAppContext } from "../context";
-import axious from "axios";
 
 export default function Viewer() {
   const [colors, setColors] = useState([]);
-  const { imageToView, setImageToView } = useAppContext();
-
+  const { imageToView, setImageToView, images } = useAppContext();
   useEffect(() => {
-    axious
-      .get("api/colors", {
-        params: { src: imageToView.src },
-      })
-      .then((res) => {
-        setColors(res.data);
-      });
-  }, [0]);
+    const foundImg = images.find((image) => image.id === imageToView.id);
+    foundImg && setColors(foundImg.colors);
+  });
 
   return (
     <div className="overlay ">
@@ -28,7 +22,10 @@ export default function Viewer() {
         ))}
       </ul>
       <div className="flex-center overflow-auto content-area bg-blue-900 rounded">
-        <img className="rounded" src={imageToView.src} />
+        <img
+          className="rounded"
+          src={`api/image/${imageToView.size}/${imageToView.id}.${FILE_EXT}`}
+        />
       </div>
       <button
         className="absolute top-4 right-4 h-8 w-8 text-blue-100 hover:text-blue-400"

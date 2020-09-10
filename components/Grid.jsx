@@ -3,18 +3,10 @@ import { useAppContext } from "../context";
 import GridItemToolbar from "./GridItemToolbar";
 
 function Grid({ initialItems }) {
-  const { images: items, setImageToView } = useAppContext();
-  const handleClick = (e) => {
-    const { srcToView } = e.target.dataset;
-    if (srcToView) {
-      setImageToView({
-        src: srcToView,
-      });
-    }
-  };
+  const { images: items } = useAppContext();
 
   return (
-    <div className="flex flex-wrap justify-center" onClick={handleClick}>
+    <div className="flex flex-wrap justify-center">
       {(items || initialItems).map(({ id }) => {
         return (
           <article

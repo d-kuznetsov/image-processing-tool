@@ -16,7 +16,7 @@ export default async (req, res) => {
     const imgData = {
       id: baseFilename,
       originalName: originalname,
-      colors,
+      colors: colors.map((color) => color.hex()),
     };
     await dataSource.get("images").push(imgData).write();
     res.status(200).end();

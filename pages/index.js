@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useAppContext } from "../context";
 import { getDataSource } from "../dataSource";
 import Head from "next/head";
@@ -7,7 +8,11 @@ import Uploader from "../components/Uploader";
 import Grid from "../components/Grid";
 
 export default function ImageManager({ initialImages }) {
-  const { imageToView, isLoading } = useAppContext();
+  const { imageToView, isLoading, setImages } = useAppContext();
+  useEffect(() => {
+    setImages(initialImages);
+  }, [0]);
+
   return (
     <React.Fragment>
       <Head>
