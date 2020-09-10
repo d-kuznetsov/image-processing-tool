@@ -1,9 +1,9 @@
-import getImgData from '../../lib/getImgData';
+import { getDataSource } from "../../dataSource";
 
 export default async (req, res) => {
   try {
-    const data = getImgData();
-    res.status(200).json(data);
+    const dataSource = await getDataSource();
+    res.status(200).json(dataSource.getState()["images"]);
   } catch (err) {
     console.log(err);
     res.status(500).end();

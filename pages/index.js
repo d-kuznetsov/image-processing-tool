@@ -1,5 +1,5 @@
 import { useAppContext } from "../context";
-import getImgData from "../lib/getImgData";
+import { getDataSource } from "../dataSource";
 import Head from "next/head";
 import LoadIndicator from "../components/LoadIndicator";
 import Viewer from "../components/Viewer";
@@ -32,6 +32,7 @@ export default function ImageManager({ initialImages }) {
 }
 
 export async function getServerSideProps() {
-  const initialImages = getImgData();
+  const dataSource = await getDataSource();
+  const initialImages = dataSource.getState()["images"];
   return { props: { initialImages } };
 }

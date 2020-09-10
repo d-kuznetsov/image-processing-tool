@@ -19,9 +19,9 @@ const LoadingIcon = () => {
         cy="50"
         fill="none"
         className="stroke-current text-blue-700"
-        stroke-width="8"
+        strokeWidth="8"
         r="35"
-        stroke-dasharray="164.93361431346415 56.97787143782138"
+        strokeDasharray="164.93361431346415 56.97787143782138"
       >
         <animateTransform
           attributeName="transform"
