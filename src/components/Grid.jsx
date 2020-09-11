@@ -15,7 +15,7 @@ function Grid({ initialItems }) {
           >
             <img
               className="rounded-md"
-              src={`api/image/${IMAGE_SIZE_TO_PREVIEW}/${id}.${FILE_EXT}`}
+              src={`api/get/image/${IMAGE_SIZE_TO_PREVIEW}/${id}.${FILE_EXT}`}
             />
             <GridItemToolbar id={id} />
           </article>

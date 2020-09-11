@@ -1,8 +1,8 @@
 import { join } from "path";
 import serveHandler from "serve-handler";
-import { DIR_TO_UPLOAD } from "../../../constants";
+import { DIR_TO_UPLOAD } from "../../../../constants";
 
-const API_PREFIX = "/api/image";
+const API_PREFIX = "/api/get/image";
 
 export default async (req, res) => {
   req.url = req.url.replace(API_PREFIX, "");

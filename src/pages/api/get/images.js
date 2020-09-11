@@ -1,4 +1,4 @@
-import { getDataSource } from "../../dataSource";
+import { getDataSource } from "../../../dataSource";
 
 export default async (req, res) => {
   try {

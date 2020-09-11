@@ -10,11 +10,11 @@ const apiClient = axios.create({
 
 export default {
   fetchImages() {
-    return apiClient.get("api/images");
+    return apiClient.get("api/get/images");
   },
   uploadImage(file) {
     const formData = new FormData();
     formData.append("image", file);
-    return apiClient.post("api/image", formData);
+    return apiClient.post("api/post/image", formData);
   },
 };

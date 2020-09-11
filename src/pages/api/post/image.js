@@ -1,9 +1,9 @@
 import { parse } from "path";
 const getColors = require("get-image-colors");
-import uploadImg from "../../lib/uploadImg";
-import runMiddleware from "../../lib/runMiddleware";
-import { getDataSource } from "../../dataSource";
-import createScaledImgs from "../../lib/createScaledImgs";
+import uploadImg from "../../../lib/uploadImg";
+import runMiddleware from "../../../lib/runMiddleware";
+import { getDataSource } from "../../../dataSource";
+import createScaledImgs from "../../../lib/createScaledImgs";
 
 export default async (req, res) => {
   try {

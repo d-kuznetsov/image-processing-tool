@@ -24,7 +24,7 @@ export default function Viewer() {
       <div className="flex-center overflow-auto content-area bg-blue-900 rounded">
         <img
           className="rounded"
-          src={`api/image/${imageToView.size}/${imageToView.id}.${FILE_EXT}`}
+          src={`api/get/image/${imageToView.size}/${imageToView.id}.${FILE_EXT}`}
         />
       </div>
       <button
