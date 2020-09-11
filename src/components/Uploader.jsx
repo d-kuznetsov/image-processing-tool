@@ -1,4 +1,4 @@
-import imageService from "../image-service";
+import clientApi from "../clientApi";
 import { useAppContext } from "../context";
 
 export default function Uploader() {
@@ -7,8 +7,8 @@ export default function Uploader() {
     const file = e.target.files[0];
     if (file) {
       setIsLoading(true);
-      await imageService.uploadImage(file);
-      const res = await imageService.fetchImages();
+      await clientApi.uploadImage(file);
+      const res = await clientApi.fetchImages();
       setImages(res.data);
       setIsLoading(false);
     }
