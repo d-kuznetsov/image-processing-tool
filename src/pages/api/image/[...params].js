@@ -1,24 +1,24 @@
 import { join } from "path";
 import serveHandler from "serve-handler";
-import { UPLOADED_DIR } from "../../../constants";
+import { DIR_TO_UPLOAD } from "../../../constants";
 
 const API_PREFIX = "/api/image";
 
 export default async (req, res) => {
   req.url = req.url.replace(API_PREFIX, "");
   await serveHandler(req, res, {
-    public: join(process.cwd(), UPLOADED_DIR),
+    public: join(process.cwd(), DIR_TO_UPLOAD),
   });
 };
 
 /*
 import fs from "fs";
 import path from "path";
-import { UPLOADED_DIR } from "../../../constants";
+import { DIR_TO_UPLOAD } from "../../../constants";
 
 export default (req, res) => {
   const [size, filename] = req.query.params;
-  const filePath = path.join(process.cwd(), UPLOADED_DIR, size, filename);
+  const filePath = path.join(process.cwd(), DIR_TO_UPLOAD, size, filename);
   if (!fs.existsSync(filePath)) {
     console.log(filePath + "not found");
     res.writeHead(404, { "Content-Type": "text/plain" });

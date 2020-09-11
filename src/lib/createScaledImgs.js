@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { IMAGE_CONFIG, FILE_EXT } from "../constants";
+import { IMAGE_TYPES, FILE_EXT } from "../constants";
 
 async function createScaledImg(params) {
   try {
@@ -49,14 +49,14 @@ async function createScaledImg(params) {
 }
 
 export default async function createScaledImgs(path, baseFilename) {
-  const parallels = Object.keys(IMAGE_CONFIG).map((key) => {
+  const parallels = Object.keys(IMAGE_TYPES).map((key) => {
     return createScaledImg({
       path,
       baseFilename,
-      dir: IMAGE_CONFIG[key].dir,
-      maxWidth: IMAGE_CONFIG[key].maxWidth,
-      maxHeight: IMAGE_CONFIG[key].maxHeight,
-      isSquare: IMAGE_CONFIG[key].isSquare,
+      dir: IMAGE_TYPES[key].dir,
+      maxWidth: IMAGE_TYPES[key].maxWidth,
+      maxHeight: IMAGE_TYPES[key].maxHeight,
+      isSquare: IMAGE_TYPES[key].isSquare,
     });
   });
   return Promise.all(parallels);
