@@ -1,22 +1,22 @@
 import { parse } from "path";
-const getColors = require("get-image-colors");
 import uploadImg from "../../../lib/uploadImg";
 import runMiddleware from "../../../lib/runMiddleware";
+import getMainColors from "../../../lib/getMainColors";
 import { getDataSource } from "../../../dataSource";
 import createScaledImgs from "../../../lib/createScaledImgs";
 
 export default async (req, res) => {
   try {
     await runMiddleware(req, res, uploadImg.single("image"));
-    const dataSource = await getDataSource();
     const { originalname, path, filename } = req.file;
     const baseFilename = parse(filename).name;
     await createScaledImgs(path, baseFilename);
-    const colors = await getColors(path);
+    const colors = await getMainColors(path);
+    const dataSource = await getDataSource();
     const imgData = {
       id: baseFilename,
       originalName: originalname,
-      colors: colors.map((color) => color.hex()),
+      colors,
     };
     await dataSource.get("images").push(imgData).write();
     res.status(200).end();
