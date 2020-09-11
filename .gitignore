@@ -29,9 +29,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-uploaded/original
-uploaded/XS
-uploaded/S
-uploaded/M
-uploaded/L
-uploaded/colors
+src/uploaded/original
+src/uploaded/XS
+src/uploaded/S
+src/uploaded/M
+src/uploaded/L
+src/uploaded/colors
