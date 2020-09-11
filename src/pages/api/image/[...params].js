@@ -1,6 +1,6 @@
 import { join } from "path";
 import serveHandler from "serve-handler";
-import { UPLOADED_DIR } from "../../../config";
+import { UPLOADED_DIR } from "../../../constants";
 
 const API_PREFIX = "/api/image";
 
@@ -14,7 +14,7 @@ export default async (req, res) => {
 /*
 import fs from "fs";
 import path from "path";
-import { UPLOADED_DIR } from "../../../config";
+import { UPLOADED_DIR } from "../../../constants";
 
 export default (req, res) => {
   const [size, filename] = req.query.params;

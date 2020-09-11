@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { IMAGE_CONFIG, FILE_EXT } from "../config";
+import { IMAGE_CONFIG, FILE_EXT } from "../constants";
 
 async function createScaledImg(params) {
   try {

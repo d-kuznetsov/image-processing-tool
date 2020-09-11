@@ -1,4 +1,4 @@
-import { IMAGE_SIZE_TO_PREVIEW, FILE_EXT } from "../config";
+import { IMAGE_SIZE_TO_PREVIEW, FILE_EXT } from "../constants";
 import { useAppContext } from "../context";
 import GridItemToolbar from "./GridItemToolbar";
 

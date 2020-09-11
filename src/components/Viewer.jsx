@@ -1,4 +1,4 @@
-import { FILE_EXT } from "../config";
+import { FILE_EXT } from "../constants";
 import { useState, useEffect } from "react";
 import { useAppContext } from "../context";
 

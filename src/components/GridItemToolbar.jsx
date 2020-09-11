@@ -1,4 +1,4 @@
-import { IMAGE_SIZES_TO_VIEW } from "../config";
+import { IMAGE_SIZES_TO_VIEW } from "../constants";
 import { useAppContext } from "../context";
 
 export default function GridItemToolbar({ id }) {

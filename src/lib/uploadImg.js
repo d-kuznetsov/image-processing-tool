@@ -1,9 +1,11 @@
 import multer, { diskStorage } from "multer";
-import { FILE_MAX_SIZE, ORIGINAL_IMAGES_DIR } from "../config";
+import { FILE_MAX_SIZE, ORIGINAL_IMAGES_DIR } from "../constants";
 const formatDate = require("dateformat");
 
 function generateFilename(file) {
-  return `${formatDate(new Date(), "yyyy-mm-dd-hh-MM-ss")}-${file.originalname}`;
+  return `${formatDate(new Date(), "yyyy-mm-dd-hh-MM-ss")}-${
+    file.originalname
+  }`;
 }
 
 const storage = diskStorage({
