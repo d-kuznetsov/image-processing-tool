@@ -4,7 +4,7 @@ export const IMAGE_SIZES_TO_VIEW = ["S", "M", "L"];
 
 export const IMAGE_SIZE_TO_PREVIEW = "XS";
 
-export const UPLOADED_DIR = "src/uploaded/";
+export const UPLOADED_DIR = "src/upload/";
 
 export const ORIGINAL_IMAGES_DIR = `${UPLOADED_DIR}original/`;
 
