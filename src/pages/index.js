@@ -1,3 +1,6 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import { useEffect } from "react";
 import { useAppContext } from "../context";
 import { getDataSource } from "../dataSource";
@@ -41,3 +44,7 @@ export async function getServerSideProps() {
   const initialImages = dataSource.get("images").value();
   return { props: { initialImages } };
 }
+
+ImageManager.propTypes = {
+  initialImages: PropTypes.arrayOf(PropTypes.object),
+};
