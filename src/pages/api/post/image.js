@@ -15,7 +15,8 @@ export default async (req, res) => {
     const dataSource = await getDataSource();
     const imgData = {
       id: baseFilename,
-      originalName: originalname,
+      name: originalname,
+      date: new Date().toISOString(),
       colors,
     };
     await dataSource.get("images").push(imgData).write();

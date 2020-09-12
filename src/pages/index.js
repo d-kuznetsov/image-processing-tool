@@ -38,6 +38,6 @@ export default function ImageManager({ initialImages }) {
 
 export async function getServerSideProps() {
   const dataSource = await getDataSource();
-  const initialImages = dataSource.getState()["images"];
+  const initialImages = dataSource.get("images").value();
   return { props: { initialImages } };
 }
