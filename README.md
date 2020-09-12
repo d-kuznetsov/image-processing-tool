@@ -68,7 +68,7 @@ Start production server
 npm run start
 ```
 
-## REST-API for getting information about images
+### REST-API for getting information about images
 
 if you go to http://localhost:3000/api/get/images, you'll get something like
 
@@ -89,7 +89,7 @@ if you go to http://localhost:3000/api/get/images, you'll get something like
 ]
 ```
 
-### Sort
+#### Sort
 
 Use `sort` and `order` (ascending order by default) to sort returned data.
 
@@ -107,7 +107,7 @@ The following options are available
 `order=asc` - in ascending order<br />
 `order=desc` - in descenting order
 
-### Paginate
+#### Paginate
 
 Use `limit` and `page` (limit must be set) to paginate returned data.
 
