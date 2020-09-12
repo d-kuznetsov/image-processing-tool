@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
+    "eslint": "^7.9.0",
+    "eslint-plugin-react": "^7.20.6",
     "lowdb": "^1.0.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-import": "^12.0.1",
