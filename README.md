@@ -70,7 +70,7 @@ npm run start
 
 ## REST-API for getting information about images
 
-if you go to (http://localhost:3000/api/get/images), you'll get something like
+if you go to http://localhost:3000/api/get/images, you'll get something like
 
 ```
 [
@@ -100,11 +100,11 @@ GET /api/get/images?sort=name&order=desc
 
 The following options are available
 
-`sort=name` - by image name
-`sort=date` - by upload date
-`sort=color` - by main
-`sort=random` - in random order
-`order=asc` - in ascending order
+`sort=name` - by image name<br />
+`sort=date` - by upload date<br />
+`sort=color` - by main<br />
+`sort=random` - in random order<br />
+`order=asc` - in ascending order<br />
 `order=desc` - in descenting order
 
 ### Paginate
