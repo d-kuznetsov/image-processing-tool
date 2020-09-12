@@ -1,3 +1,5 @@
+import React from "react";
+
 import { FILE_EXT } from "../constants";
 import { useState, useEffect } from "react";
 import { useAppContext } from "../context";

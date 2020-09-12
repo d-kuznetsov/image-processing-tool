@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function LoadIndicator() {
   return (
     <div className="overlay">

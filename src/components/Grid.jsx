@@ -1,8 +1,11 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import { IMAGE_SIZE_TO_PREVIEW, FILE_EXT } from "../constants";
 import { useAppContext } from "../context";
 import GridItemToolbar from "./GridItemToolbar";
 
-function Grid({ initialItems }) {
+export default function Grid({ initialItems }) {
   const { images: items } = useAppContext();
 
   return (
@@ -11,7 +14,7 @@ function Grid({ initialItems }) {
         return (
           <article
             key={id}
-            className="group relative flex-center p-4 border-solid border-2 border-transparent hover:border-blue-400 hover:bg-blue-100 rounded-md cursor-pointer"
+            className="group relative  flex-center p-4 border-solid border-2 border-transparent hover:border-blue-400 hover:bg-blue-100 rounded-md cursor-pointer"
           >
             <img
               className="rounded-md"
@@ -25,4 +28,10 @@ function Grid({ initialItems }) {
   );
 }
 
-export default Grid;
+Grid.propTypes = {
+  initialItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    })
+  ),
+};

@@ -1,3 +1,6 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import { IMAGE_SIZES_TO_VIEW } from "../constants";
 import { useAppContext } from "../context";
 
@@ -33,3 +36,7 @@ export default function GridItemToolbar({ id }) {
     </ul>
   );
 }
+
+GridItemToolbar.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};

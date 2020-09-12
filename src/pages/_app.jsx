@@ -1,10 +1,18 @@
-import "../styles.css";
-import { AppContextProvider } from "../context";
+import React from "react";
+import PropTypes from "prop-types";
 
-export default function MyApp({ Component, pageProps }) {
+import { AppContextProvider } from "../context";
+import "../styles.css";
+
+export default function App({ Component, pageProps }) {
   return (
     <AppContextProvider>
       <Component {...pageProps} />
     </AppContextProvider>
   );
 }
+
+App.propTypes = {
+  Component: PropTypes.element,
+  pageProps: PropTypes.object,
+};
