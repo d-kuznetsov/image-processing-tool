@@ -1,11 +1,3 @@
-const purgecss = [
-  "@fullhuman/postcss-purgecss",
-  {
-    content: ["./components/**/*.jsx", "./pages/**/*.jsx"],
-    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-  },
-];
-
 module.exports = {
   plugins: [
     "postcss-import",
@@ -23,6 +15,5 @@ module.exports = {
         },
       },
     ],
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
   ],
 };

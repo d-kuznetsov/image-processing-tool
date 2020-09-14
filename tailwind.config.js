@@ -1,4 +1,10 @@
 module.exports = {
+  purge: [
+    "./src/components/**/*.jsx",
+    "./src/pages/**/*.jsx",
+    "./src/**/*.css",
+  ],
+
   future: {
     removeDeprecatedGapUtilities: true,
   },
