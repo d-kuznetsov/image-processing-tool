@@ -1,19 +1,16 @@
 import axios from "axios";
 
-const apiClient = axios.create({
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
+const axiosClient = axios.create({
+  baseURL: "/api",
 });
 
 export default {
   fetchImages() {
-    return apiClient.get("api/get/images");
+    return axiosClient.get("get/images");
   },
   uploadImage(file) {
     const formData = new FormData();
     formData.append("image", file);
-    return apiClient.post("api/post/image", formData);
+    return axiosClient.post("post/image", formData);
   },
 };
