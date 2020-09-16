@@ -1,7 +1,7 @@
 const lowdb = require("lowdb");
 const FileAsync = require("lowdb/adapters/FileAsync");
 
-const adapter = new FileAsync("./src/dataSource/data.json");
+const adapter = new FileAsync("./upload/data.json");
 const dataSourcePreparing = lowdb(adapter);
 
 module.exports = {
