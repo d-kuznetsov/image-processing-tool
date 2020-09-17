@@ -6,8 +6,8 @@ import { useAppContext } from "../context";
 import clientApi from "../clientApi";
 
 export default function GridItemToolbar({ id }) {
-  const { setImageToView } = useAppContext();
-  const handleClick = (e) => {
+  const { setImageToView, setImages, setIsLoading } = useAppContext();
+  const handleClick = async (e) => {
     const { size, remove } = e.target.dataset;
     if (id && size) {
       setImageToView({
@@ -17,7 +17,16 @@ export default function GridItemToolbar({ id }) {
       return;
     }
     if (remove && confirm("Are you sure you want to delete the image?")) {
-      clientApi.removeImage(id);
+      try {
+        setIsLoading(true);
+        await clientApi.removeImage(id);
+        const res = await clientApi.fetchImages();
+        setImages(res.data);
+      } catch (err) {
+        alert("An error occurred while deleting the image");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 

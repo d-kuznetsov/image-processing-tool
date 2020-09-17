@@ -8,11 +8,16 @@ export default function Uploader() {
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      setIsLoading(true);
-      await clientApi.uploadImage(file);
-      const res = await clientApi.fetchImages();
-      setImages(res.data);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        await clientApi.uploadImage(file);
+        const res = await clientApi.fetchImages();
+        setImages(res.data);
+      } catch (err) {
+        alert("An error occurred while processing the image");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 

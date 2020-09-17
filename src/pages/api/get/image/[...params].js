@@ -5,10 +5,15 @@ import { DIR_TO_UPLOAD } from "../../../../constants";
 const API_PREFIX = "/api/get/image";
 
 export default async (req, res) => {
-  req.url = req.url.replace(API_PREFIX, "");
-  await serveHandler(req, res, {
-    public: join(process.cwd(), DIR_TO_UPLOAD),
-  });
+  try {
+    req.url = req.url.replace(API_PREFIX, "");
+    await serveHandler(req, res, {
+      public: join(process.cwd(), DIR_TO_UPLOAD),
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).end();
+  }
 };
 
 /*
