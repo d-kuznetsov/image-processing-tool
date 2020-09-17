@@ -49,15 +49,17 @@ async function createScaledImg(params) {
 }
 
 export default async function createScaledImgs(path, baseFilename) {
-  const parallels = Object.keys(IMAGE_TYPES).map((key) => {
-    return createScaledImg({
-      path,
-      baseFilename,
-      dir: IMAGE_TYPES[key].dir,
-      maxWidth: IMAGE_TYPES[key].maxWidth,
-      maxHeight: IMAGE_TYPES[key].maxHeight,
-      isSquare: IMAGE_TYPES[key].isSquare,
-    });
-  });
+  const parallels = Object.entries(IMAGE_TYPES).map(
+    ([_, { dir, maxHeight, maxWidth, isSquare }]) => {
+      return createScaledImg({
+        path,
+        baseFilename,
+        dir,
+        maxWidth,
+        maxHeight,
+        isSquare,
+      });
+    }
+  );
   return Promise.all(parallels);
 }
