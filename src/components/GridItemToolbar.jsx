@@ -3,16 +3,21 @@ import PropTypes from "prop-types";
 
 import { IMAGE_SIZES_TO_VIEW } from "../constants";
 import { useAppContext } from "../context";
+import clientApi from "../clientApi";
 
 export default function GridItemToolbar({ id }) {
   const { setImageToView } = useAppContext();
   const handleClick = (e) => {
-    const { imgId, imgSize } = e.target.dataset;
-    if (imgId && imgSize) {
+    const { size, remove } = e.target.dataset;
+    if (id && size) {
       setImageToView({
-        id: imgId,
-        size: imgSize,
+        id,
+        size,
       });
+      return;
+    }
+    if (remove && confirm("Are you sure you want to delete the image?")) {
+      clientApi.removeImage(id);
     }
   };
 
@@ -25,14 +30,20 @@ export default function GridItemToolbar({ id }) {
         return (
           <li
             key={size}
-            className="flex-center border-solid border-2 border-blue-400 hover:border-blue-700 rounded-md w-8 h-8 bg-blue-100 hover:bg-blue-400 mb-1 font-bold"
-            data-img-id={id}
-            data-img-size={size}
+            className="flex-center text-blue-700 border-solid border-2 border-blue-400 hover:border-blue-700 rounded-md w-8 h-8 bg-blue-100 hover:bg-blue-400 mb-1 font-bold"
+            data-size={size}
           >
             {size}
           </li>
         );
       })}
+      <li
+        key="remove"
+        className="flex-center text-red-700 border-solid border-2 border-red-400 hover:border-red-700 rounded-md w-8 h-8 bg-red-100 hover:bg-red-400 mb-1 font-bold"
+        data-remove
+      >
+        X
+      </li>
     </ul>
   );
 }

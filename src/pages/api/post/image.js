@@ -9,13 +9,16 @@ export default async (req, res) => {
   try {
     await runMiddleware(req, res, uploadImg.single("image"));
     const { originalname, path, filename } = req.file;
+    // console.log(req.file);
     const baseFilename = parse(filename).name;
+    const fileExt = parse(filename).ext;
     await createScaledImgs(path, baseFilename);
     const colors = await getMainColors(path);
     const dataSource = await getDataSource();
     const imgData = {
       id: baseFilename,
       name: originalname,
+      extention: fileExt,
       date: new Date().toISOString(),
       colors,
     };

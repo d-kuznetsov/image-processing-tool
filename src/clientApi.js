@@ -13,4 +13,11 @@ export default {
     formData.append("image", file);
     return axiosClient.post("post/image", formData);
   },
+  removeImage(id) {
+    return axiosClient.delete(`delete/image`, {
+      data: {
+        id,
+      },
+    });
+  },
 };
