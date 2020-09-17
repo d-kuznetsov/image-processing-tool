@@ -38,10 +38,12 @@ async function createScaledImg(params) {
     const resizeCfg =
       width / maxWidth > height / maxHeight
         ? { width: maxWidth }
-        : { height: maxWidth };
+        : { height: maxHeight };
     imgSharp = imgSharp.resize(resizeCfg);
   }
-  await imgSharp.toFile(`${dir}${baseFilename}.${FILE_EXT}`);
+  await imgSharp
+    .jpeg({ quality: 75 })
+    .toFile(`${dir}${baseFilename}.${FILE_EXT}`);
 }
 
 export default async function createScaledImgs(path, baseFilename) {
