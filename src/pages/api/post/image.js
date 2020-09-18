@@ -2,8 +2,8 @@ import { parse } from "path";
 import uploadImg from "../../../lib/uploadImg";
 import runMiddleware from "../../../lib/runMiddleware";
 import getMainColors from "../../../lib/getMainColors";
-import { getDataSource } from "../../../dataSource";
 import createScaledImgs from "../../../lib/createScaledImgs";
+import { getDataSource } from "../../../dataSource";
 
 export default async (req, res) => {
   try {
@@ -28,7 +28,7 @@ export default async (req, res) => {
       colors,
     };
     await dataSource.get("images").push(imgData).write();
-    res.status(200).end();
+    res.status(204).end();
   } catch (err) {
     console.log(err);
     res.status(500).end();

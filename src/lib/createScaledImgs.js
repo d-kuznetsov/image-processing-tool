@@ -12,8 +12,8 @@ async function createScaledImg(params) {
     isSquare,
   } = params;
   let imgSharp = await sharp(originalImgPath);
-  const metadata = await imgSharp.metadata();
-  let { width, height } = metadata;
+  let { width, height } = await imgSharp.metadata();
+
   if (width > maxWidth || height > maxHeight) {
     if (isSquare) {
       let extractCfg;
@@ -58,8 +58,8 @@ export default async function createScaledImgs(originalImgPath, name) {
       return createScaledImg({
         originalImgPath,
         size,
-        name,
         dir,
+        name,
         maxWidth,
         maxHeight,
         isSquare,

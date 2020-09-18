@@ -59,3 +59,9 @@ export default async (req, res) => {
     res.status(500).end();
   }
 };
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};

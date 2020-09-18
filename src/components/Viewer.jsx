@@ -1,12 +1,12 @@
 import React from "react";
 
-import { FILE_EXT } from "../constants";
 import { useState, useEffect } from "react";
+import { FILE_EXT } from "../constants";
 import { useAppContext } from "../context";
 
 export default function Viewer() {
-  const [colors, setColors] = useState([]);
   const { imageToView, setImageToView, images } = useAppContext();
+  const [colors, setColors] = useState([]);
   useEffect(() => {
     const foundImg = images.find((image) => image.id === imageToView.id);
     foundImg && setColors(foundImg.colors);

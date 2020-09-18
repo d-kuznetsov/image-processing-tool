@@ -1,5 +1,5 @@
-import { unlink } from "fs";
 import { join } from "path";
+import { unlink } from "fs";
 import { getDataSource } from "../../../dataSource";
 import { ORIGINAL_IMAGES_DIR, IMAGE_TYPES, FILE_EXT } from "../../../constants";
 
@@ -10,7 +10,7 @@ export default async (req, res) => {
     const imgData = dataSource.get("images").find({ id }).value();
     if (imgData) {
       await dataSource.get("images").remove({ id }).write();
-      res.status(200).json(imgData);
+      res.status(204).end();
       unlink(
         join(
           process.cwd(),
@@ -27,7 +27,7 @@ export default async (req, res) => {
         });
       });
     } else {
-      res.status(200).end("removed");
+      res.status(204).end();
     }
   } catch (err) {
     console.log(err);
