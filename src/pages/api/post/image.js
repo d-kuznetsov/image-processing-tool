@@ -8,18 +8,23 @@ import createScaledImgs from "../../../lib/createScaledImgs";
 export default async (req, res) => {
   try {
     await runMiddleware(req, res, uploadImg.single("image"));
-    const { originalname, path, filename } = req.file;
-    // console.log(req.file);
-    const baseFilename = parse(filename).name;
-    const fileExt = parse(filename).ext;
-    await createScaledImgs(path, baseFilename);
+    const {
+      originalname: originalBasename,
+      filename: basename,
+      path,
+    } = req.file;
+    const { name, ext } = parse(basename);
+
+    await createScaledImgs(path, name);
     const colors = await getMainColors(path);
     const dataSource = await getDataSource();
     const imgData = {
-      id: baseFilename,
-      name: originalname,
-      extention: fileExt,
+      id: name,
+      name: parse(originalBasename).name,
       date: new Date().toISOString(),
+      original: {
+        ext,
+      },
       colors,
     };
     await dataSource.get("images").push(imgData).write();

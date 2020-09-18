@@ -2,15 +2,8 @@ import sharp from "sharp";
 import { IMAGE_TYPES, FILE_EXT } from "../constants";
 
 async function createScaledImg(params) {
-  const {
-    path,
-    dir,
-    baseFilename,
-    maxWidth = 400,
-    maxHeight = maxWidth,
-    isSquare = false,
-  } = params;
-  let imgSharp = await sharp(path);
+  const { originalImgPath, dir, name, maxWidth, maxHeight, isSquare } = params;
+  let imgSharp = await sharp(originalImgPath);
   const metadata = await imgSharp.metadata();
   let { width, height } = metadata;
   if (width > maxWidth || height > maxHeight) {
@@ -41,17 +34,15 @@ async function createScaledImg(params) {
         : { height: maxHeight };
     imgSharp = imgSharp.resize(resizeCfg);
   }
-  await imgSharp
-    .jpeg({ quality: 75 })
-    .toFile(`${dir}${baseFilename}${FILE_EXT}`);
+  await imgSharp.jpeg({ quality: 75 }).toFile(`${dir}${name}${FILE_EXT}`);
 }
 
-export default async function createScaledImgs(path, baseFilename) {
+export default async function createScaledImgs(originalImgPath, name) {
   const parallels = Object.entries(IMAGE_TYPES).map(
     ([_, { dir, maxHeight, maxWidth, isSquare }]) => {
       return createScaledImg({
-        path,
-        baseFilename,
+        originalImgPath,
+        name,
         dir,
         maxWidth,
         maxHeight,

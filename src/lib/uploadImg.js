@@ -1,7 +1,7 @@
 import { parse } from "path";
 import multer, { diskStorage } from "multer";
-import { ORIGINAL_IMAGES_DIR } from "../constants";
 import shortId from "shortid";
+import { ORIGINAL_IMAGES_DIR } from "../constants";
 
 const FILE_MAX_SIZE = 1024 * 1024 * 5;
 

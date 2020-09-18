@@ -15,7 +15,7 @@ export default async (req, res) => {
         join(
           process.cwd(),
           ORIGINAL_IMAGES_DIR,
-          `${imgData.id}${imgData.extention}`
+          `${imgData.id}${imgData.original.ext}`
         ),
         (err) => {
           err && console.log(err);
