@@ -10,15 +10,14 @@ export function useAppContext() {
 
 export function AppContextProvider({ children }) {
   const { state, setImageToView, setImages, setIsLoading } = useAppState();
-  const ctxValue = useMemo(
-    () => ({
+  const ctxValue = useMemo(() => {
+    return {
       ...state,
       setImageToView,
       setImages,
       setIsLoading,
-    }),
-    [state]
-  );
+    };
+  }, [JSON.stringify(state)]);
 
   return <AppContext.Provider value={ctxValue}>{children}</AppContext.Provider>;
 }
