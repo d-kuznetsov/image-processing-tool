@@ -14,8 +14,7 @@ export default async (req, res) => {
       path,
     } = req.file;
     const { name, ext } = parse(basename);
-
-    await createScaledImgs(path, name);
+    const scaledImgsData = await createScaledImgs(path, name);
     const colors = await getMainColors(path);
     const dataSource = await getDataSource();
     const imgData = {
@@ -25,6 +24,7 @@ export default async (req, res) => {
       original: {
         ext,
       },
+      scaled: scaledImgsData,
       colors,
     };
     await dataSource.get("images").push(imgData).write();

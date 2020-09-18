@@ -6,7 +6,7 @@ const axiosClient = axios.create({
 
 export default {
   fetchImages() {
-    return axiosClient.get("get/images");
+    return axiosClient.get("get/images?short=true");
   },
   uploadImage(file) {
     const formData = new FormData();

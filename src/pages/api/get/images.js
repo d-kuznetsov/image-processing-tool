@@ -1,8 +1,35 @@
 import { getDataSource } from "../../../dataSource";
+import { FILE_EXT } from "../../../constants";
+
+const apiPrefix = "/api/get/image/";
+
+const mapImageList = (listWrap, isShort) => {
+  if (isShort) {
+    return listWrap
+      .value()
+      .map(({ id, name, colors }) => ({ id, name, colors }));
+  } else {
+    return listWrap.value().map((data) => {
+      const { id, original, scaled } = data;
+      return {
+        ...data,
+        original: {
+          src: `${apiPrefix}original/${id}${original.ext}`,
+        },
+        scaled: scaled.map((data) => {
+          return {
+            ...data,
+            src: `${apiPrefix}${data.size}/${id}${FILE_EXT}`,
+          };
+        }),
+      };
+    });
+  }
+};
 
 export default async (req, res) => {
   try {
-    let { sort, order, limit, page = 1 } = req.query;
+    let { sort, order, limit, page = 1, short } = req.query;
     const dataSource = await getDataSource();
     let imgListWrap = dataSource.get("images");
 
@@ -26,8 +53,7 @@ export default async (req, res) => {
     if (limit) {
       imgListWrap = imgListWrap.slice((page - 1) * limit, page * limit);
     }
-
-    res.status(200).json(imgListWrap.value());
+    res.status(200).json(mapImageList(imgListWrap, short));
   } catch (err) {
     console.log(err);
     res.status(500).end();
