@@ -43,7 +43,7 @@ async function createScaledImg(params) {
   }
   await imgSharp
     .jpeg({ quality: 75 })
-    .toFile(`${dir}${baseFilename}.${FILE_EXT}`);
+    .toFile(`${dir}${baseFilename}${FILE_EXT}`);
 }
 
 export default async function createScaledImgs(path, baseFilename) {

@@ -1,5 +1,4 @@
-export const FILE_MAX_SIZE = 1024 * 1024 * 5;
-export const FILE_EXT = "png";
+export const FILE_EXT = ".png";
 
 export const IMAGE_SIZES_TO_VIEW = ["S", "M", "L"];
 export const IMAGE_SIZE_TO_PREVIEW = "XS";

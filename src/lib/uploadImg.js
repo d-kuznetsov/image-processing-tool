@@ -1,24 +1,21 @@
+import { parse } from "path";
 import multer, { diskStorage } from "multer";
-import { FILE_MAX_SIZE, ORIGINAL_IMAGES_DIR } from "../constants";
-const formatDate = require("dateformat");
+import { ORIGINAL_IMAGES_DIR } from "../constants";
+import shortId from "shortid";
 
-function generateFilename(file) {
-  return `${formatDate(new Date(), "yyyy-mm-dd-hh-MM-ss")}-${
-    file.originalname
-  }`;
-}
+const FILE_MAX_SIZE = 1024 * 1024 * 5;
 
 const storage = diskStorage({
   destination: ORIGINAL_IMAGES_DIR,
-  filename(req, file, cb) {
-    cb(null, generateFilename(file));
+  filename(_, file, cb) {
+    cb(null, `${shortId.generate()}${parse(file.originalname).ext}`);
   },
 });
 
 const uploadImg = multer({
   storage,
   limits: { fileSize: FILE_MAX_SIZE },
-  fileFilter(req, file, cb) {
+  fileFilter(_, file, cb) {
     cb(null, /^image\//.test(file.mimetype));
   },
 });

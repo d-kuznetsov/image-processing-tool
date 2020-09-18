@@ -22,7 +22,7 @@ export default async (req, res) => {
         }
       );
       Object.entries(IMAGE_TYPES).forEach(([_, { dir }]) => {
-        unlink(join(process.cwd(), dir, `${imgData.id}.${FILE_EXT}`), (err) => {
+        unlink(join(process.cwd(), dir, `${imgData.id}${FILE_EXT}`), (err) => {
           err && console.log(err);
         });
       });
