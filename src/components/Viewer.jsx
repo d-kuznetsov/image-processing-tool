@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FILE_EXT } from "../constants";
 import { useAppContext } from "../context";
 
 export default function Viewer() {
-  const { imageToView, setImageToView, images } = useAppContext();
-  const [colors, setColors] = useState([]);
+  const { imageToView, setImageToView } = useAppContext();
   useEffect(() => {
-    const foundImg = images.find((image) => image.id === imageToView.id);
-    foundImg && setColors(foundImg.colors);
-
     const handleKeyDown = (e) => {
       e.code === "Escape" && setImageToView(null);
     };
@@ -21,7 +17,7 @@ export default function Viewer() {
   return (
     <div className="overlay ">
       <ul className="absolute top-16 left-16 p-0 m-0">
-        {colors.map((color) => (
+        {imageToView?.colors.map((color) => (
           <li
             className="h-6 w-12 rounded mb-1"
             key={color}

@@ -12,15 +12,24 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case SET_IS_LOADING:
+      return { ...state, isLoading: action.isLoading };
     case SET_IMAGES:
       return { ...state, images: action.images };
     case SET_IMG_TO_VIEW:
-      return { ...state, imageToView: action.image };
-    case SET_IS_LOADING:
-      return { ...state, isLoading: action.isLoading };
+      return { ...state, imageToView: getImageToView(state, action) };
     default:
       throw new Error();
   }
+}
+
+function getImageToView(state, action) {
+  return (
+    action.image && {
+      ...state.images.find((image) => image.id === action.image.id),
+      size: action.image.size,
+    }
+  );
 }
 
 export function useAppState() {
