@@ -41,6 +41,7 @@ export default function GridItemToolbar({ id }) {
             key={size}
             className="flex-center text-blue-700 border-solid border-2 border-blue-400 hover:border-blue-700 rounded-md w-8 h-8 bg-blue-100 hover:bg-blue-400 mb-1 font-bold"
             data-size={size}
+            title={`open image of size ${size}`}
           >
             {size}
           </li>
@@ -50,6 +51,7 @@ export default function GridItemToolbar({ id }) {
         key="remove"
         className="flex-center text-red-700 border-solid border-2 border-red-400 hover:border-red-700 rounded-md w-8 h-8 bg-red-100 hover:bg-red-400 mb-1 font-bold"
         data-remove
+        title="remove image"
       >
         X
       </li>

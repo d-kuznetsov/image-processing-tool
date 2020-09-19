@@ -33,6 +33,7 @@ export default function Uploader() {
       <label
         htmlFor="fileInput"
         className="group block text-blue-400 hover:text-blue-700 cursor-pointer"
+        title="add image"
       >
         <button className="w-16 h-16 pointer-events-none">
           <UploadIcon />

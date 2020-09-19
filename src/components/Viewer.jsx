@@ -1,6 +1,4 @@
-import React from "react";
-
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FILE_EXT } from "../constants";
 import { useAppContext } from "../context";
 
@@ -20,6 +18,7 @@ export default function Viewer() {
             className="h-6 w-12 rounded mb-1"
             key={color}
             style={{ backgroundColor: `${color}` }}
+            title={color}
           />
         ))}
       </ul>
@@ -34,6 +33,7 @@ export default function Viewer() {
         onClick={() => {
           setImageToView(null);
         }}
+        title="close"
       >
         X
       </div>
