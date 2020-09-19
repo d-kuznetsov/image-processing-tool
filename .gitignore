@@ -29,8 +29,4 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-upload/original
-upload/XS
-upload/S
-upload/M
-upload/L
+upload/*/*
