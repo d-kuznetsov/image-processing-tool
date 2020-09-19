@@ -8,7 +8,15 @@ export default function Viewer() {
   useEffect(() => {
     const foundImg = images.find((image) => image.id === imageToView.id);
     foundImg && setColors(foundImg.colors);
-  });
+
+    const handleKeyDown = (e) => {
+      e.code === "Escape" && setImageToView(null);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [0]);
 
   return (
     <div className="overlay ">
