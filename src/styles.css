@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 @tailwind base;
 body {
   @apply font-sans;
@@ -8,6 +9,7 @@ body {
   height: calc(100% - theme("spacing.24"));
   width: calc(100% - theme("spacing.24"));
 }
+/* purgecss end ignore */
 
 @tailwind utilities;
 .flex-center {
