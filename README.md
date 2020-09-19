@@ -2,6 +2,8 @@
 
 This simple web application, developed as part of the **web technology course (ss2020)**, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
 
+![ImageScaling](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2020-d-kuznetsov/blob/master/docs/images/image-grid.jpeg)
+
 This application can be used with or without Docker.
 
 ### Development Environment (with Docker)
@@ -23,7 +25,7 @@ docker build --tag image-manager:1.0 .
 1. Run your image as a container
 
 ```
-docker run --publish 8000:3000 --detach --name image-manager image-manager:1.0
+docker run --publish 3000:3000 --detach --name image-manager image-manager:1.0
 ```
 
 2. Visit your application in a browser at http://localhost:3000/.
@@ -68,6 +70,10 @@ Start production server
 npm run start
 ```
 
+### Scaffolding
+
+To use already prepared data, replace `/upload` with `/examples/upload`
+
 ### REST-API for getting information about images
 
 if you go to http://localhost:3000/api/get/images, you'll get something like
@@ -75,16 +81,37 @@ if you go to http://localhost:3000/api/get/images, you'll get something like
 ```
 [
   {
-    "id": "1234567",
-    "name": "image-name.jpeg",
-    "date": "2020-09-11T23:34:25.507Z",
-    "colors": [
-      "#e09765",
-      "#3c3630",
-      "#8b7567",
-      "#958f8d",
-      "#a8a599"
-    ]
+    id: "B1kgzLca_",
+    name: "bridge",
+    date: "2020-09-19T21:16:12.200Z",
+    original: { src: "/api/get/image/original/B1kgzLca_.jpeg" },
+    scaled: [
+      {
+        size: "XS",
+        width: 200,
+        height: 200,
+        src: "/api/get/image/XS/B1kgzLca_.jpeg",
+      },
+      {
+        size: "S",
+        width: 267,
+        height: 400,
+        src: "/api/get/image/S/B1kgzLca_.jpeg",
+      },
+      {
+        size: "M",
+        width: 467,
+        height: 700,
+        src: "/api/get/image/M/B1kgzLca_.jpeg",
+      },
+      {
+        size: "L",
+        width: 600,
+        height: 900,
+        src: "/api/get/image/L/B1kgzLca_.jpeg",
+      },
+    ],
+    colors: ["#d3cdc8", "#1e1e21", "#604f4b", "#6f777e", "#846659"],
   },
 ]
 ```
@@ -100,12 +127,12 @@ GET /api/get/images?sort=name&order=desc
 
 The following options are available
 
-`sort=name` - by image name<br />
-`sort=date` - by upload date<br />
-`sort=color` - by main<br />
-`sort=random` - in random order<br />
-`order=asc` - in ascending order<br />
-`order=desc` - in descenting order
+`sort=name` - sort by image name<br />
+`sort=date` - sort by upload date<br />
+`sort=color` - sort by main color<br />
+`sort=random` - sort in random order<br />
+`order=asc` - arrange in ascending order<br />
+`order=desc` - arrange in descenting order
 
 #### Paginate
 
@@ -124,11 +151,11 @@ Before submitting your contribution, please make sure to take a moment and read 
 
 ### Requirements
 
-This project was created using JavaScript library [React](https://reactjs.org/) and React Framework [Next.js](https://nextjs.org/). Make sure you understand the basic concepts of these technologies. In addition, basic knowledge of [SASS](https://sass-lang.com/) and [Express](https://expressjs.com/) is desirable.
+This project was created using JavaScript library [React](https://reactjs.org/) and React Framework [Next.js](https://nextjs.org/). Make sure you understand the basic concepts of these technologies. In addition, basic knowledge of [Tailwindcss](https://tailwindcss.com/) and [Express](https://expressjs.com/) is desirable.
 
 ### Code Conventios
 
-[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) and [BEM](http://getbem.com/)
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 ### Git Workflow
 
