@@ -1,0 +1,11 @@
+FROM mhart/alpine-node
+
+WORKDIR /app
+COPY . .
+
+RUN npm install
+
+VOLUME /app/upload /app/src
+
+EXPOSE 3000
+CMD ["npm", "run", "dev"]

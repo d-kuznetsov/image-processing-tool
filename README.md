@@ -16,16 +16,32 @@ If you don't have Docker installed, [install it from here](https://docs.docker.c
 2. Open your terminal and **cd** into the repository directory.
 3. Run the following command to build a image:
 
+**development**
+
 ```
-docker build --tag image-manager:1.0 .
+docker build --tag image-manager:dev -f Dockerfile.dev .
+```
+
+**production**
+
+```
+docker build --tag image-manager:prod -f Dockerfile.prod .
 ```
 
 ### Start (with Docker)
 
 1. Run your image as a container
 
+**development**
+
 ```
-docker run --publish 3000:3000 --detach --name image-manager image-manager:1.0
+docker run --publish 3000:3000 --detach --name image-manager image-manager:dev
+```
+
+**production**
+
+```
+docker run --publish 3000:3000 --detach --name image-manager image-manager:prod
 ```
 
 2. Visit your application in a browser at http://localhost:3000/.
@@ -78,7 +94,7 @@ To use already prepared data, replace `/upload` with `/examples/upload`
 
 if you go to http://localhost:3000/api/get/images, you'll get something like
 
-```
+```js
 [
   {
     id: "B1kgzLca_",
@@ -113,6 +129,7 @@ if you go to http://localhost:3000/api/get/images, you'll get something like
     ],
     colors: ["#d3cdc8", "#1e1e21", "#604f4b", "#6f777e", "#846659"],
   },
+  ...
 ]
 ```
 
@@ -138,7 +155,7 @@ The following options are available
 
 Use `limit` and `page` (limit must be set) to paginate returned data.
 
-```
+```php
 GET /api/get/images?limit=10
 GET /api/get/images?limit=10&page=5
 ```
