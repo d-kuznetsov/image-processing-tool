@@ -1,4 +1,4 @@
-export const FILE_EXT = ".png";
+export const FILE_EXT = ".jpeg";
 
 export const IMAGE_SIZES_TO_VIEW = ["S", "M", "L"];
 export const IMAGE_SIZE_TO_PREVIEW = "XS";
