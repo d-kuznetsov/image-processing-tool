@@ -1,0 +1,27 @@
+@import "./normalize.css";
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/Roboto-Regular.ttf") format("truetype");
+}
+
+$color-main: #3ea69b;
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: $color-main;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin: 1rem;
+}
+
+.json {
+  font-size: 0.75rem;
+}
