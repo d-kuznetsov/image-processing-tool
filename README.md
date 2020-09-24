@@ -35,13 +35,22 @@ docker build --tag image-manager:prod -f Dockerfile.prod .
 **development**
 
 ```
-docker run --publish 3000:3000 --detach --name image-manager image-manager:dev
+docker run --detach \
+--publish 3000:3000 \
+--name image-manager \
+-v dev-upload-vol:/app/upload \
+-v dev-src-vol:/app/src \
+image-manager:dev
 ```
 
 **production**
 
 ```
-docker run --publish 3000:3000 --detach --name image-manager image-manager:prod
+docker run --detach \
+--publish 3000:3000  \
+--name image-manager \
+-v prod-upload-vol:/app/upload \
+image-manager:prod
 ```
 
 2. Visit your application in a browser at http://localhost:3000/.
