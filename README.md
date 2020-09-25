@@ -18,27 +18,11 @@ If you don't have Docker installed, [install it from here](https://docs.docker.c
 
 **development**
 
-```
-docker build -t img-manager-dev -f Dockerfile.dev .
-```
-
-or
-
-```
-npm run docker-build:dev
-```
+`docker build -t img-manager-dev -f Dockerfile.dev .` or `npm run docker-build:dev`
 
 **production**
 
-```
-docker build -t img-manager-prod -f Dockerfile.prod .
-```
-
-or
-
-```
-npm run docker-build:prod
-```
+`docker build -t img-manager-prod -f Dockerfile.prod .` or `npm run docker-build:prod`
 
 ### Start (with Docker)
 
@@ -73,27 +57,21 @@ npm run docker-run:prod
 
 **development**
 
-```
-docker stop img-manager-dev
-```
-
-or
-
-```
-npm run docker-stop:dev
-```
+`docker stop img-manager-dev` or `npm run docker-stop:dev`
 
 **production**
 
-```
-docker stop img-manager-prod
-```
+`docker stop img-manager-prod` or `npm run docker-stop:prod`
 
-or
+4. Start the stopped container
 
-```
-npm run docker-stop:prod
-```
+**development**
+
+`docker start img-manager-dev` or `npm run docker-start:dev`
+
+**production**
+
+`docker start img-manager-prod` or `npm run docker-start:prod`
 
 ### Development Environment (without Docker)
 
