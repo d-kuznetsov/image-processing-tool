@@ -1,4 +1,5 @@
 /node_modules
 /.next/
-Dockerfile
+Dockerfile.dev
+Dockerfile.prod
 /upload/*/*
