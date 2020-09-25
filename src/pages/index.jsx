@@ -20,7 +20,7 @@ export default function ImageManager({ initialImages }) {
     <React.Fragment>
       <Head>
         <title>Image Manager</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       {isLoading && <LoadIndicator />}
       {imageToView && <Viewer />}
