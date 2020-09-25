@@ -11,7 +11,9 @@
     "docker-run:dev": "docker run -d -p 3000:3000 --name img-manager-dev -v upload-vol-dev:/app/upload -v src-vol-dev:/app/src img-manager-dev",
     "docker-run:prod": "docker run -d -p 3000:3000 --name img-manager-prod -v upload-vol-prod:/app/upload img-manager-prod",
     "docker-stop:dev": "docker stop img-manager-dev",
-    "docker-stop:prod": "docker stop img-manager-prod"
+    "docker-stop:prod": "docker stop img-manager-prod",
+    "docker-start:dev": "docker start img-manager-dev",
+    "docker-start:prod": "docker start img-manager-prod"
   },
   "dependencies": {
     "@types/lowdb": "^1.0.9",
