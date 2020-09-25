@@ -19,13 +19,25 @@ If you don't have Docker installed, [install it from here](https://docs.docker.c
 **development**
 
 ```
-docker build --tag image-manager:dev -f Dockerfile.dev .
+docker build -t img-manager-dev -f Dockerfile.dev .
+```
+
+or
+
+```
+npm run docker-build:dev
 ```
 
 **production**
 
 ```
-docker build --tag image-manager:prod -f Dockerfile.prod .
+docker build -t img-manager-prod -f Dockerfile.prod .
+```
+
+or
+
+```
+npm run docker-build:prod
 ```
 
 ### Start (with Docker)
@@ -35,29 +47,52 @@ docker build --tag image-manager:prod -f Dockerfile.prod .
 **development**
 
 ```
-docker run --detach \
---publish 3000:3000 \
---name image-manager \
--v dev-upload-vol:/app/upload \
--v dev-src-vol:/app/src \
-image-manager:dev
+docker run -d -p 3000:3000 --name img-manager-dev -v upload-vol-dev:/app/upload -v src-vol-dev:/app/src img-manager-dev
+```
+
+or
+
+```
+npm run docker-run:dev
 ```
 
 **production**
 
 ```
-docker run --detach \
---publish 3000:3000  \
---name image-manager \
--v prod-upload-vol:/app/upload \
-image-manager:prod
+docker run -d -p 3000:3000 --name img-manager-prod -v upload-vol-prod:/app/upload img-manager-prod
+```
+
+or
+
+```
+npm run docker-run:prod
 ```
 
 2. Visit your application in a browser at http://localhost:3000/.
 3. Stop the running container
 
+**development**
+
 ```
-docker stop image-manager
+docker stop img-manager-dev
+```
+
+or
+
+```
+npm run docker-stop:dev
+```
+
+**production**
+
+```
+docker stop img-manager-prod
+```
+
+or
+
+```
+npm run docker-stop:prod
 ```
 
 ### Development Environment (without Docker)
