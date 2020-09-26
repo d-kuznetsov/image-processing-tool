@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "cross-env NODE_ENV=production http-server ./dist -P http://localhost:3000",
+    "start": "cross-env NODE_ENV=production static dist",
     "build:dev": "cross-env NODE_ENV=development webpack",
     "watch": "cross-env NODE_ENV=development webpack --watch"
   },
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
-    "http-server": "^0.12.3"
+    "axios": "^0.20.0",
+    "node-static": "^0.7.11"
   }
 }
