@@ -1,15 +1,25 @@
-version: "3.8"
+version: "3.4"
 services:
-  frontend:
+  dev-env-prod:
     build:
       context: .
       dockerfile: Dockerfile.prod
+    restart: always
+    container_name: dev-env-prod
     ports:
       - "8080:8080"
 
-  backend:
+  backend-prod:
     build:
       context: ../
       dockerfile: Dockerfile.prod
+    restart: always
+    container_name: backend-prod
     ports:
       - "3000:3000"
+      volumes:
+        - type: volume
+          source: img-upload
+          target: /app/upload
+volumes:
+  img-upload:

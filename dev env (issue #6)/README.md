@@ -39,37 +39,16 @@ npm run serve
 
 ## Setup (Docker)
 
-- if you need image data from the server, run the main app container from the root directory of the repo.
-- From `/dev env` directory run commands
+To launch the app using Docker run the following commands
 
 #### development
 
 ```
-build a image
-$ npm run docker-build:dev
-
-run the image as a container
-$ npm run docker-run:dev
-
-stop the running container
-$ npm run docker-stop:dev
-
-start the stopped container
-$ npm run docker-start:dev
+docker-compose -f docker-compose.dev.yml up
 ```
 
 #### production
 
 ```
-build a image
-$ npm run docker-build:dev
-
-run the image as a container
-$ npm run docker-run:dev
-
-stop the running container
-$ npm run docker-stop:dev
-
-start the stopped container
-$ npm run docker-start:dev
+docker-compose -f docker-compose.prod.yml up
 ```
