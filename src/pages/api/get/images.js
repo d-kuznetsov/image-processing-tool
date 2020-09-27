@@ -1,8 +1,10 @@
+import Cors from "cors";
+import runMiddleware from "../../../lib/runMiddleware";
 import { getDataSource } from "../../../dataSource";
 import { FILE_EXT } from "../../../constants";
+const API_PREFIX = "/api/get/image/";
 
-const apiPrefix = "/api/get/image/";
-
+const corsMiddleware = Cors();
 const mapImageList = (listWrap, isShort) => {
   if (isShort) {
     return listWrap
@@ -14,12 +16,12 @@ const mapImageList = (listWrap, isShort) => {
       return {
         ...data,
         original: {
-          src: `${apiPrefix}original/${id}${original.ext}`,
+          src: `${API_PREFIX}original/${id}${original.ext}`,
         },
         scaled: scaled.map((data) => {
           return {
             ...data,
-            src: `${apiPrefix}${data.size}/${id}${FILE_EXT}`,
+            src: `${API_PREFIX}${data.size}/${id}${FILE_EXT}`,
           };
         }),
       };
@@ -29,6 +31,8 @@ const mapImageList = (listWrap, isShort) => {
 
 export default async (req, res) => {
   try {
+    await runMiddleware(req, res, corsMiddleware);
+
     let { sort, order, limit, page = 1, short } = req.query;
     const dataSource = await getDataSource();
     let imgListWrap = dataSource.get("images");
@@ -55,7 +59,7 @@ export default async (req, res) => {
     }
     res.status(200).json(mapImageList(imgListWrap, short));
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).end();
   }
 };
