@@ -18,21 +18,21 @@ If you don't have Docker installed, [install it from here](https://docs.docker.c
 
 **development**
 
-```
-build a image
+```bash
+# build a image
 $ npm run docker-build:dev
 
-run the image as a container
+# run the image as a container
 $ npm run docker-run:dev
 ```
 
 **production**
 
-```
-build a image
+```bash
+# build a image
 $ npm run docker-build:prod
 
-run the image as a container
+# run the image as a container
 $ npm run docker-run:prod
 ```
 
@@ -41,21 +41,21 @@ $ npm run docker-run:prod
 
 **development**
 
-```
-stop the running container
+```bash
+# stop the running container
 $ npm run docker-stop:dev
 
-restart the stopped container
+# restart the stopped container
 $ npm run docker-start:dev
 ```
 
 **production**
 
-```
-stop the running container
+```bash
+# stop the running container
 $ npm run docker-stop:prod
 
-restart the stopped container
+# restart the stopped container
 $ npm run docker-start:prod
 ```
 
@@ -70,28 +70,21 @@ You'll need Node.js version 10.13 or later.
 2. Open your terminal and **cd** into the repository directory.
 3. Run the following command to set up npm packages:
 
-```
-npm install
+```bash
+$ npm install
 ```
 
 ### Commonly used npm scripts
 
-Start app in development mode
+```bash
+# start app in development mode
+$ nmp run dev
 
-```
-nmp run dev
-```
+# build app for production usage
+$ npm run build
 
-Builds app for production usage
-
-```
-npm run build
-```
-
-Start production server
-
-```
-npm run start
+# start production server
+$ npm run start
 ```
 
 ### Scaffolding
@@ -145,7 +138,7 @@ if you go to http://localhost:3000/api/get/images, you'll get something like
 
 Use `sort` and `order` (ascending order by default) to sort returned data.
 
-```
+```php
 GET /api/get/images?sort=name
 GET /api/get/images?sort=name&order=desc
 ```

@@ -18,23 +18,23 @@ If you don't have Node.js installed, [install it from here](https://nodejs.org/e
 - Open your terminal and **cd** into the `/dev env` directory of repo.
 - Run the following command to set up npm packages:
 
-```
-npm install
+```bash
+$ npm install
 ```
 
 - If you need image data from the server, run the main app from the root of the repo.
 - To start the app in development mode, run the command
 
-```
+```bash
 npm run dev
 ```
 
 - To start the app in production mode, run the commands
 
-```
-npm run build
+```bash
+$ npm run build
 
-npm run serve
+$ npm run serve
 ```
 
 ## Setup (Docker)
@@ -43,12 +43,12 @@ To launch the app using Docker run the following commands
 
 #### development
 
-```
-docker-compose -f docker-compose.dev.yml up
+```bash
+$ docker-compose -f docker-compose.dev.yml up
 ```
 
 #### production
 
-```
-docker-compose -f docker-compose.prod.yml up
+```bash
+$ docker-compose -f docker-compose.prod.yml up
 ```
