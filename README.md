@@ -1,4 +1,4 @@
-# Web application for processing images
+# Web application for processing images img-upload
 
 This simple web application, developed as part of the **web technology course (ss2020)**, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
 
@@ -14,64 +14,50 @@ If you don't have Docker installed, [install it from here](https://docs.docker.c
 
 1. Сlone this repository.
 2. Open your terminal and **cd** into the repository directory.
-3. Run the following command to build a image:
-
-**development**
-
-`docker build -t img-manager-dev -f Dockerfile.dev .` or `npm run docker-build:dev`
-
-**production**
-
-`docker build -t img-manager-prod -f Dockerfile.prod .` or `npm run docker-build:prod`
-
-### Start (with Docker)
-
-1. Run your image as a container
+3. Run the following commands to start app:
 
 **development**
 
 ```
-docker run -d -p 3000:3000 --name img-manager-dev -v upload-vol-dev:/app/upload -v src-vol-dev:/app/src img-manager-dev
-```
+build a image
+$ npm run docker-build:dev
 
-or
-
-```
-npm run docker-run:dev
+run the image as a container
+$npm run docker-run:dev
 ```
 
 **production**
 
 ```
-docker run -d -p 3000:3000 --name img-manager-prod -v upload-vol-prod:/app/upload img-manager-prod
+build a image
+$ npm run docker-build:prod
+
+run the image as a container
+$npm run docker-run:prod
 ```
 
-or
-
-```
-npm run docker-run:prod
-```
-
-2. Visit your application in a browser at http://localhost:3000/.
-3. Stop the running container
+4. Visit your application in a browser at http://localhost:3000/.
+5. To stop or restart run the appropriate command
 
 **development**
 
-`docker stop img-manager-dev` or `npm run docker-stop:dev`
+```
+stop the running container
+$ npm run docker-stop:dev
+
+restart the stopped container
+$ npm run docker-start:dev
+```
 
 **production**
 
-`docker stop img-manager-prod` or `npm run docker-stop:prod`
+```
+stop the running container
+$ npm run docker-stop:prod
 
-4. Start the stopped container
-
-**development**
-
-`docker start img-manager-dev` or `npm run docker-start:dev`
-
-**production**
-
-`docker start img-manager-prod` or `npm run docker-start:prod`
+restart the stopped container
+$ npm run docker-start:prod
+```
 
 ### Development Environment (without Docker)
 
