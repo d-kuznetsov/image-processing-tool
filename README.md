@@ -23,7 +23,7 @@ build a image
 $ npm run docker-build:dev
 
 run the image as a container
-$npm run docker-run:dev
+$ npm run docker-run:dev
 ```
 
 **production**
@@ -33,11 +33,11 @@ build a image
 $ npm run docker-build:prod
 
 run the image as a container
-$npm run docker-run:prod
+$ npm run docker-run:prod
 ```
 
 4. Visit your application in a browser at http://localhost:3000/.
-5. To stop or restart run the appropriate command
+5. To stop or restart the container run the appropriate command
 
 **development**
 
