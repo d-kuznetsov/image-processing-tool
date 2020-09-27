@@ -13,8 +13,8 @@ export default function ColorPalette() {
     <React.Fragment>
       {imageToView?.colors.map((color) => {
         return (
-          <div
-            className="h-6 w-8 rounded mr-1 cursor-pointer"
+          <button
+            className="focus:outline-none focus:shadow-outline h-6 w-8 rounded mr-1 cursor-pointer"
             key={color}
             style={{ backgroundColor: `${color}` }}
             title={`copy ${color} to clipboard`}
