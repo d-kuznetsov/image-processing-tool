@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "cross-env NODE_ENV=production static dist",
+    "start": "cross-env NODE_ENV=production static dist -a 0.0.0.0",
     "build:dev": "cross-env NODE_ENV=development webpack",
     "watch": "cross-env NODE_ENV=development webpack --watch"
   },
