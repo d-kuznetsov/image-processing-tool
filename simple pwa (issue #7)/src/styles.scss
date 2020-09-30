@@ -1,0 +1,44 @@
+$text-bg-color: rgba(0, 0, 0, 0.75);
+$text-color: white;
+$padding: 12px;
+
+body {
+  margin: 0px;
+  font-size: 18px;
+}
+
+.wrap {
+  position: relative;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.bg-image {
+  max-width: 100%;
+}
+
+.date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: $padding;
+  background-color: $text-bg-color;
+  color: $text-color;
+  text-align: center;
+}
+
+.main-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% / 3);
+  padding: $padding;
+  background-color: $text-bg-color;
+  color: $text-color;
+}
+
+.author {
+  text-align: right;
+}
