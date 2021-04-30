@@ -1,4 +1,4 @@
-# Web application for processing images img-upload
+# Web application for processing images
 
 This simple web application, developed as part of the **web technology course (ss2020)**, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
 
