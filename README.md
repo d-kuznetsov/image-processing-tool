@@ -2,7 +2,7 @@
 
 This simple web application, developed as part of the **web technology course (ss2020)**, allows you to upload and process photos (reduce size and quality, extract a square shape and the primary colors).
 
-![ImageScaling](https://github.com/mi-classroom/mi-web-technologien-beiboot-ss2020-d-kuznetsov/blob/master/docs/images/image-grid.jpeg)
+![ImageScaling](https://github.com/d-kuznetsov/image-processing-tool/blob/master/docs/images/image-grid.jpeg)
 
 This application can be used with or without Docker.
 
