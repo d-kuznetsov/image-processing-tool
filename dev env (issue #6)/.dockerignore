@@ -1,6 +1,0 @@
-/node_modules
-/dist
-Dockerfile.dev
-Dockerfile.prod
-docker-compose.dev.yml
-docker-compose.prod.yml
